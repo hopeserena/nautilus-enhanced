@@ -1,0 +1,137 @@
+/* Nautilus Roam Depot Plugin Styles */
+
+/* Base & Dark Mode Semantic Variable Layer */
+:root {
+  --naut-text-main: #555555;
+  --naut-text-sub: #aaaaaa;
+  --naut-spiral: #888888;
+}
+
+.bp3-dark, .roam-app.rm-dark-theme {
+  --naut-text-main: #eeeeee;
+  --naut-text-sub: #cccccc;
+  --naut-spiral: #aaaaaa;
+}
+
+/* Center the graphic and buttons */
+.nautilus-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  width: 100%;
+  position: relative; /* important for absolute positioning of controls */
+}
+
+.nautilus-svg {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
+  transition: filter 0.3s ease;
+  margin-bottom: 8px;
+}
+
+/* Graphic slices */
+.nautilus-slice {
+  transition: fill 0.25s ease, stroke 0.25s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center;
+}
+
+/* Give a slightly elevated hover effect inside the SVG */
+.event-slice-group:hover .nautilus-slice {
+  filter: brightness(1.1) drop-shadow(0px 2px 6px rgba(0,0,0,0.15));
+  stroke: rgba(255,255,255,0.7);
+  stroke-width: 1.5px;
+}
+
+.event-slice-group text {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), font-weight 0.2s ease, filter 0.2s ease;
+}
+
+.event-slice-group:hover text {
+  font-weight: bold;
+  filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.15));
+  transform: translateX(3px);
+}
+
+.nautilus-link-line {
+  transition: opacity 0.3s ease, stroke-width 0.2s ease;
+  opacity: 0.4;
+  stroke-dasharray: 4, 3;
+}
+
+.event-slice-group:hover .nautilus-link-line {
+  opacity: 0.9;
+  stroke-dasharray: none;
+  stroke-width: 1.5px;
+}
+
+/* Top Controls container for a minimal overlay layout */
+.nautilus-controls-top {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.nautilus-container:hover .nautilus-controls-top {
+  opacity: 1;
+}
+
+/* Minimalist Icon Button for Visible Toggle */
+.nautilus-toggle-btn {
+  background: transparent;
+  color: #888;
+  padding: 6px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.nautilus-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #333;
+  transform: scale(1.1);
+}
+
+.nautilus-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+/* Dark mode compatibility for floating icon button */
+.bp3-dark .nautilus-toggle-btn,
+.roam-app.rm-dark-theme .nautilus-toggle-btn {
+  color: #aaa;
+}
+
+.bp3-dark .nautilus-toggle-btn:hover,
+.roam-app.rm-dark-theme .nautilus-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.bp3-dark .nautilus-svg,
+.roam-app.rm-dark-theme .nautilus-svg {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.nautilus-svg.playback-active .nautilus-slice,
+.nautilus-svg.playback-active .nautilus-slice-group text,
+.nautilus-svg.playback-active .nautilus-link-line {
+  opacity: 0;
+  animation: slicePopIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: var(--pb-delay, 0s);
+  transform-origin: center;
+}
+
+@keyframes slicePopIn {
+  0% { opacity: 0; transform: translateY(2px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

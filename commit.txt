@@ -1,0 +1,27 @@
+feat: The Ultimate Nautilus Enhanced Release v1.0.0
+
+🚀 Features & Visual Overhauls:
+- Optimized CJK (Chinese) text rendering and width-calculation for TODO items to prevent UI collision.
+- Implemented step-segmentation geometry for cross-hour tasks, allowing them perfectly to hug the spiral.
+- Designed smooth Bezier Curve connectors between time slices and text legends.
+- Revamped "Completed Tasks" (已完成事项) UI with fading and strikethroughs for better visual satisfaction.
+- Refined the central circle layout: Adjusted the red "current-time" pointer to stop clipping the center area, and optically centered the date/year text using physiological visual offset logic.
+- Localized the entire Plugin Settings into both English & Chinese, including dynamically swapping text instructions and descriptions.
+- Renamed the extension template component to "Nautilus Enhanced" and vastly simplified the onboarding tutorial.
+
+⚡ Performance & Architecture:
+- Fixed critical Reagent/React memory leaks! Roam Datalog's polling engine and Regex parsing are now securely memoized under `r/track` hooks, completely neutralizing the CPU-draining minute-tick re-renders.
+- General file cleanup and artifact reduction.
+
+---
+🚀 视觉与排版改造：
+- 针对中文 CJK 字符的宽度估算和 TODO 碰撞检测进行了原生优化。
+- 引入了跨小时长任务的弧形梯级切分，完美贴合螺旋路径。
+- 全新绘制了平滑的“脑图式”贝塞尔曲线引线，更加优雅。
+- 提升了已完成事项（DONE tasks）的展示成就感，增加半透明与删除线效果。
+- 修复并优化了中心圆样式：当前现在的红色指针不再穿透侵入发光中心区域。利用“视错觉下移”原理，对中心圆里的日期与数字进行了绝对几何纠偏。
+- 完成了原生设置面板的全面中英双语国际化适配，并极大地简化了自带的上手教程。
+- 把挂载的触发模板名字规范化为 Nautilus Enhanced。
+
+⚡ 性能与重构优化：
+- 修复了灾难性的 React 挂载内存泄露！将 Roam 数据库查询引擎和极其消耗 CPU 的正则解析被完全安全地封装在了按需启动的缓存层里（r/track 钩子），每一分钟的时钟滴答不再引发整个时间轴全盘重绘和数据库风暴。

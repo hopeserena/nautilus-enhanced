@@ -1,0 +1,15 @@
+/node_modules
+node_modules
+/archive
+# build
+dist
+out
+.env.local
+.lsp
+.calva
+.clj-kondo
+.vscode/settings.json
+
+.DS_Store
+*extension.js
+.calva/output-window/output.calva-repl
